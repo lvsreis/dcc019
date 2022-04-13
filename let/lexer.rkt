@@ -29,6 +29,7 @@
   (lexer-src-pos
    [(eof) (token-EOF)]
    [(:+ whitespace #\newline) (return-without-pos (next-token input-port))]
+   [(:: ";" (:* (:~ #\newline)) #\newline) (return-without-pos (next-token input-port))]
    ["=" (token-EQ)]
    ["-" (token-MINUS)]
    ["(" (token-LPAREN)]
