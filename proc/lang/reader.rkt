@@ -4,15 +4,15 @@
          dcc019/proc/interpreter
          dcc019/util/env)
 
-(provide (rename-out [let-read read]
-                     [let-read-syntax read-syntax]))
+(provide (rename-out [proc-read read]
+                     [proc-read-syntax read-syntax]))
 
-(define (let-read in)
+(define (proc-read in)
   (syntax->datum
-   (let-read-syntax #f in)))
+   (proc-read-syntax #f in)))
 
-(define (let-read-syntax path port)
+(define (proc-read-syntax path port)
   (datum->syntax
    #f
-   `(module let-mod racket
+   `(module proc-mod racket
       ,(value-of (parse port) init-env)))) ; change the environment
