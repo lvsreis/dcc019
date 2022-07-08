@@ -15,8 +15,9 @@
   (define (proc-val var exp Δ)
     (lambda (val flag)
       (if flag (value-of exp (extend-env var (newref val) Δ))
-          (let ([v (value-of exp (extend-env var (newref (deref val)) Δ))])
-            (begin (setref! val v)
+          (let* ([l (newref (deref val))]
+                 [v (value-of exp (extend-env var l Δ))])
+            (begin (setref! val (deref l))
                    v)))))
   
   (define (apply-proc proc val)
