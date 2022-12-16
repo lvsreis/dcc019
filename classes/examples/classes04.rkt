@@ -22,3 +22,5 @@ in begin
   send o2 sety2(999);
   -(send o2 gety1(), send o2 gety2())
 end
+
+% Result: -897

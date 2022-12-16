@@ -21,7 +21,9 @@
        ELSE
        LET
        IN
-       PROC
+       ADD
+       MULT
+       DIV
        ;TRUE
        ;FALSE
        ))
@@ -33,6 +35,9 @@
    [(:: ";" (:* (:~ #\newline)) #\newline) (return-without-pos (next-token input-port))]
    ["=" (token-EQ)]
    ["-" (token-MINUS)]
+   ["+" (token-ADD)]  ; extension for add
+   ["*" (token-MULT)] ; extension for mult
+   ["/" (token-DIV)]  ; extension for division
    ["(" (token-LPAREN)]
    [")" (token-RPAREN)]
    ["," (token-COMMA)]
@@ -42,9 +47,8 @@
    ["else" (token-ELSE)]
    ["let" (token-LET)]
    ["in" (token-IN)]
-   ["proc" (token-PROC)]
    #;["true" (token-TRUE)]
    #;["false" (token-FALSE)]
-   [(:: alphabetic (:* (:or alphabetic numeric))) (token-VAR lexeme)]
+   [(:+ alphabetic) (token-VAR lexeme)]
    [(:+ numeric) (token-INT (string->number lexeme))]))
 

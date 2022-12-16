@@ -29,3 +29,5 @@ in let t2 = 0
         set t2 = send o1 geti();
         -(t1,t2)
        end
+
+% Result: -2

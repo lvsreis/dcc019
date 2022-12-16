@@ -11,7 +11,7 @@
 ; Representação da memória usando o vetor e uma lista endereços disponíveis
 (struct store (mem free) #:transparent)
 
-(define TAM 10) ; tamanho da memória
+(define TAM 100) ; tamanho da memória
 
 (define (init-free-address tam)
   (if (> tam 0)

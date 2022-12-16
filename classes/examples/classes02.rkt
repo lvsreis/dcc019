@@ -24,3 +24,5 @@ let o1 = new tree(
             new leaf(4)),
           new leaf(5))
 in send o1 sum()
+
+% Result: 12
