@@ -25,7 +25,7 @@
           [(LBRACE stmt stmts RBRACE) (ast:block (cons $2 $3))]
           [(IF exp stmt stmt) (ast:if-stmt $2 $3 $4)]
           [(WHILE exp stmt) (ast:while $2 $3)]
-          [(VAR ID SEMI stmt) (ast:local-decl $2 $4)])
+          [(VAR ID SEMI stmt) (ast:local-decl (ast:var $2) $4)])
 
     (stmts [() '()]
            [(SEMI stmt stmts) (cons $2 $3)])
