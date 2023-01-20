@@ -45,7 +45,10 @@
 
 (define (value-of-program prog)
   (empty-store)
-  ; you must collect all the classes declared and building its respectively environment
-  ; execute the prog expression in the correct environment
-  (value-of prog init-env))
+  (match prog
+    [(ast:prog decls exp)
+     (begin
+       ; you must collect all the classes declared and building its respectively environment
+       ; execute the prog expression in the correct environment
+       (value-of exp init-env))]))
 
