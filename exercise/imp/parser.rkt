@@ -9,7 +9,7 @@
 (define core-parser
   (parser
 
-   (start stmt) ; the start nonterminal is exp
+   (start stmt) ; the start nonterminal is stmt
    (end EOF) ; define the final of the input stream as EOF
    (tokens value-tokens op-tokens)
    (src-pos)
