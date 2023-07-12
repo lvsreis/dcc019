@@ -13,7 +13,7 @@
     [(ast:bool v) v]
     [(ast:dif e1 e2) (- (value-of e1 Δ) (value-of e2 Δ))]
     [(ast:zero? e) (zero? (value-of e Δ))]
-    [(ast:not e) (value-of e Δ)]
+    [(ast:not e) (not (value-of e Δ))]
     [(ast:if e1 e2 e3) (if (value-of e1 Δ) (value-of e2 Δ) (value-of e3 Δ))]
     [(ast:var v) (apply-env Δ v)] ; esta implementação só funciona para variáveis imutáveis
     [(ast:let (ast:var x) e1 e2) (value-of e2 (extend-env x (value-of e1 Δ) Δ))]
