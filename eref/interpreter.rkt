@@ -25,7 +25,7 @@
         (apply-env env svar))))
 
 ; value-of :: Exp -> ExpVal
-(define (value-of exp Δ)
+(define (value-of exp Δ)  
   (match exp
     [(ast:int n) n]
     [(ast:dif e1 e2) (- (value-of e1 Δ) (value-of e2 Δ))]

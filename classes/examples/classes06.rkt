@@ -15,6 +15,6 @@ class c3 extends c2
   method m2() 33
 
 let o3 = new c3()
-in send o3 m3()
+ in send o3 m3()
 
 % Result: 33
