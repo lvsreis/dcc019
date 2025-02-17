@@ -22,8 +22,10 @@
 
       (define (read-one-line origin port)
         (define one-line (read-line port))
-        (eval-query (parse (open-input-string ,prog))
-                    (repl-parse (open-input-string one-line))))
+        (if (eq? one-line eof)
+            eof
+            (eval-query (parse (open-input-string ,prog))
+                        (repl-parse (open-input-string one-line)))))
 
 
       (current-read-interaction read-one-line)
