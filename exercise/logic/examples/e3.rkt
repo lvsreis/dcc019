@@ -19,8 +19,9 @@ u(d).                              /* #10 */
 
 % consultas:
 
-   % p(X,f(Y),a) = p(a,f(a),Y)
-   % p(X,f(Y),a) = p(a,f(b),Y)
-   % p(X,f(Y),a) = p(Z,f(b),a)
-   % f(X) = f(f(X))
-   % p(X)
+   % p(X,f(Y),a) = p(a,f(a),Y).
+   % p(X,f(Y),a) = p(a,f(b),Y).
+   % p(X,f(Y),a) = p(Z,f(b),a).
+   % X = a, Y = b, X \= Y.
+   % f(X) = f(f(X)).
+   % p(X).
